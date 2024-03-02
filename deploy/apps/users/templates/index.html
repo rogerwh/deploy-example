@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Listado de Usuarios</title>
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+</head>
+<body>
+	<table class="table table-hover">
+	  <thead>
+	    <tr>
+	      <th scope="col">Username</th>
+	      <th scope="col">First Name</th>
+	      <th scope="col">Last Name</th>
+	      <th scope="col">Country</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	  	{% for user in users %}
+	    <tr class="table-active">
+	      <th scope="row">{{user.username}}</th>
+	      <td>{{user.first_name}}</td>
+	      <td>{{user.last_name}}</td>
+	      <td>{{user.country}}</td>
+	    </tr>
+	    {% empty %}
+	    {% endfor %}
+	  </tbody>
+	</table>
+
+</body>
+</html>
